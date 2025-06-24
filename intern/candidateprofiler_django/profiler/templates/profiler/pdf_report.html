@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>Candidate Report</title></head>
+<body>
+  <h1>Social Media Matching Report for {{ name }}</h1>
+  <table border="1" cellpadding="5">
+    <tr>
+      <th>Platform</th><th>Title</th><th>Confidence %</th>
+    </tr>
+    {% for r in results %}
+    <tr>
+      <td>{{ r.platform }}</td><td>{{ r.title }}</td><td>{{ r.confidence }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>

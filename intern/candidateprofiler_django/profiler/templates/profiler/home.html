@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <h1>Smart Profiler is working!</h1>
+  <title>Resume Upload</title>
+</head>
+<body>
+  <h2>Upload Resume</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="resume" accept=".pdf" required>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

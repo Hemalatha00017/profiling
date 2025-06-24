@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Matched Profiles</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h2>🔍 Matched Profiles</h2>
+  <table border="1">
+  <tr>
+    <th>Platform</th>
+    <th>Title</th>
+    <th>URL</th>
+    <th>Fuzzy Score</th>
+    <th>Jaccard Score</th>
+    <th>Image Match %</th>
+    <th>OCR Extracted Text</th>
+    <th>Confidence %</th>
+
+  </tr>
+  {% for result in results %}
+  <tr>
+    <td>{{ result.platform }}</td>
+    <td>{{ result.title }}</td>
+    <td><a href="{{ result.url }}" target="_blank">View</a></td>
+    <td>{{ result.fuzzy_score }}</td>
+    <td>{{ result.jaccard_score }}</td>
+    <td>{{ result.image_score }}</td>
+    <td><pre>{{ result.ocr_text }}</pre></td>
+    <td style="background-color: {% if result.confidence > 80 %}#c7f5c4{% elif result.confidence > 50 %}#fff3b0{% else %}#f7caca{% endif %};">
+    <strong>{{ result.confidence }}</strong>
+    </td>
+
+
+  </tr>
+  {% endfor %}
+
+  </table>
+
+</body>
+</html>
